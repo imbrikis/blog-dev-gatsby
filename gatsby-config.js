@@ -10,5 +10,21 @@ module.exports = {
     description:
       "A blog to track my progress as a software designer and developer",
   },
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/src/blog`,
+      },
+    },
+    `gatsby-transformer-remark`,
+  ],
 }

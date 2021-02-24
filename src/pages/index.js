@@ -8,6 +8,8 @@ export default function Home({ data }) {
     <div>
       <h1>{title}</h1>
       <p>{description}</p>
+
+      <img src={data.image.publicURL} alt="swirl" />
     </div>
   )
 }
@@ -19,6 +21,10 @@ export const pageQuery = graphql`
         title
         description
       }
+    }
+
+    image: file(base: { eq: "imb_001.jpg" }) {
+      publicURL
     }
   }
 `

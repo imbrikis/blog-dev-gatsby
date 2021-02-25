@@ -1,11 +1,12 @@
 import React from "react"
+import styles from "../css/main.module.css"
 import { graphql, Link } from "gatsby"
 
 export default function blog({ data }) {
   const { posts } = data.blog
 
   return (
-    <div>
+    <div className={styles.blog_container}>
       <Link to="/">Nope... take me back home</Link>
 
       <h1>The blog posts</h1>

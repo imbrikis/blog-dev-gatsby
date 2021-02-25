@@ -1,4 +1,5 @@
 import React from "react"
+import styles from "../css/main.module.css"
 import { graphql, Link } from "gatsby"
 
 const blogPost = ({ data }) => {
@@ -7,9 +8,12 @@ const blogPost = ({ data }) => {
   return (
     <div>
       <Link to="/blog">All blog posts</Link>
-      <h1>{post.frontmatter.title}</h1>
+      <h1 className={styles.frontmatter_title}>{post.frontmatter.title}</h1>
       <small>{post.frontmatter.date}</small>
-      <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
+      <div
+        className={styles.blog_content}
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      ></div>
     </div>
   )
 }

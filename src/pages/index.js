@@ -1,4 +1,5 @@
 import React from "react"
+import styles from "../css/main.module.css"
 import { graphql, Link } from "gatsby"
 
 export default function Home({ data }) {
@@ -6,10 +7,25 @@ export default function Home({ data }) {
 
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <Link to="/blog">Onward... to the BLOG!!!</Link>
-      <img src={data.image.publicURL} alt="swirl" />
+      <div
+        className={styles.hero_img}
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${data.image.publicURL}")`,
+          height: "100vh",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          position: "relative",
+        }}
+      >
+        <div className={styles.main_content}>
+          <div className={styles.main_wrapper}>
+            <h1>{title}</h1>
+            <p>{description}</p>
+            <Link to="/blog">Onward... to the BLOG!!!</Link>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
